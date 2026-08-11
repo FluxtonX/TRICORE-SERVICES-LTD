@@ -1,91 +1,73 @@
 const whoWeAreData = {
-  "about-tricore-services": {
-    title: "About TRICORE SERVICES",
+  "estate-management": {
+    title: "Estate Management",
     imageSrc:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=800&fit=crop&auto=format&q=80",
-    bgColor: "bg-primary",
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=800&fit=crop&auto=format&q=80",
+    bgColor: "bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-900",
     sections: [
       {
-        heading: "Our Story",
+        heading: "Comprehensive Estate Oversight",
         content:
-          "TRICORE SERVICES LTD was founded with the mission to provide unmatched security services while maintaining the highest professional standards.",
+          "TRICORE SERVICES LTD delivers premier estate management solutions designed to maintain, protect, and enhance residential and commercial property environments nationwide.",
       },
       {
-        heading: "Our Values",
+        heading: "Asset & Grounds Preservation",
         content:
-          "We operate with integrity, reliability, and a commitment to keeping our clients safe and secure.",
+          "Our dedicated team handles facility maintenance, access control, security monitoring, and contractor supervision to ensure seamless estate operations.",
       },
     ],
   },
-  csr: {
-    title: "Corporate Social Responsibility",
+  "concierge-office-management": {
+    title: "Concierge Office Management",
     imageSrc:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=800&fit=crop",
-    bgColor: "bg-primary",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop&auto=format&q=80",
+    bgColor: "bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-900",
     sections: [
       {
-        heading: "Community Engagement",
+        heading: "Front-of-House Excellence",
         content:
-          "We actively participate in initiatives that uplift communities and create positive change.",
+          "Our concierge and office management personnel provide a welcoming, highly professional front desk presence, handling visitor registration, access control, and administrative support.",
       },
       {
-        heading: "Sustainability Efforts",
+        heading: "Tailored Facility Support",
         content:
-          "Our operations are aligned with eco-friendly practices to reduce our environmental footprint.",
+          "We streamline daily office operations, package handling, and tenant assistance, creating a secure and corporate-ready workplace environment.",
       },
     ],
   },
-  management: {
-    title: "Management",
+  marketing: {
+    title: "Marketing",
     imageSrc:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=800&fit=crop&auto=format&q=80",
-    bgColor: "bg-primary",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&auto=format&q=80",
+    bgColor: "bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-900",
     sections: [
       {
-        heading: "Leadership Team",
+        heading: "Strategic Brand Outreach",
         content:
-          "Our experienced management team drives the company forward with a clear vision and strategy.",
+          "We drive strategic marketing campaigns and client engagement initiatives to position TRICORE SERVICES LTD as an industry-leading security and facilities provider.",
       },
       {
-        heading: "Operational Excellence",
+        heading: "Client Relations & Growth",
         content:
-          "We maintain robust systems and processes to ensure reliable, efficient, and secure operations.",
+          "Our marketing team focuses on transparent communication, brand awareness, and building long-term trust across corporate and public sectors.",
       },
     ],
   },
-  accreditation: {
-    title: "Accreditation",
+  "hotel-management": {
+    title: "Hotel Management",
     imageSrc:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=800&fit=crop&auto=format&q=80",
-    bgColor: "bg-primary",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=800&fit=crop&auto=format&q=80",
+    bgColor: "bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-900",
     sections: [
       {
-        heading: "Certifications",
+        heading: "Hospitality Security & Operations",
         content:
-          "We hold multiple industry-recognized certifications that demonstrate our commitment to quality and safety.",
+          "We provide specialized hotel management and security solutions, ensuring exceptional guest experiences while safeguarding guests, staff, and hotel assets round the clock.",
       },
       {
-        heading: "Compliance",
+        heading: "24/7 Guest & Property Care",
         content:
-          "All our services are compliant with national and international security standards.",
-      },
-    ],
-  },
-  location: {
-    title: "Location",
-    imageSrc:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1200&h=800&fit=crop&auto=format&q=80",
-    bgColor: "bg-primary",
-    sections: [
-      {
-        heading: "Our Offices",
-        content:
-          "We have a network of offices strategically located to serve our clients effectively.",
-      },
-      {
-        heading: "Global Reach",
-        content:
-          "Our operations extend beyond borders, allowing us to provide international security solutions.",
+          "From lobby security and key management to rapid incident response, our hotel management service guarantees peace of mind and regulatory compliance.",
       },
     ],
   },

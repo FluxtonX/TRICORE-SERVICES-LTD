@@ -38,10 +38,10 @@ const footerData = {
       content: {
         type: "links",
         links: [
-          { name: "About TRICORE SERVICES", url: "/about" },
-          { name: "CSR", url: "/csr" },
-          { name: "Management", url: "/management" },
-          { name: "Location", url: "/location" },
+          { name: "Estate Management", url: "/who-we-are/estate-management" },
+          { name: "Concierge Office Management", url: "/who-we-are/concierge-office-management" },
+          { name: "Marketing", url: "/who-we-are/marketing" },
+          { name: "Hotel Management", url: "/who-we-are/hotel-management" },
         ],
       },
     },

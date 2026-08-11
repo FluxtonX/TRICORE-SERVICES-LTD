@@ -16,26 +16,25 @@ const navData = {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "About TRICORE SERVICES",
-          slug: "about-tricore-services",
-          content: "About TRICORE SERVICES page.",
+          name: "Estate Management",
+          slug: "estate-management",
+          content: "Estate Management page.",
         },
         {
-          name: "Corporate Social Responsibility",
-          slug: "csr",
-          content: "CSR page.",
+          name: "Concierge Office Management",
+          slug: "concierge-office-management",
+          content: "Concierge Office Management page.",
         },
         {
-          name: "Management",
-          slug: "management",
-          content: "Management page.",
+          name: "Marketing",
+          slug: "marketing",
+          content: "Marketing page.",
         },
         {
-          name: "Accreditation",
-          slug: "accreditation",
-          content: "Accreditation page.",
+          name: "Hotel Management",
+          slug: "hotel-management",
+          content: "Hotel Management page.",
         },
-        { name: "Location", slug: "location", content: "Location page." },
       ],
     },
     {
