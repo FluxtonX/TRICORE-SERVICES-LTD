@@ -53,7 +53,7 @@ const footerData = {
           { name: "Quality Policy", url: "/quality-policy" },
           { name: "Contact Us", url: "/contact" },
           { name: "Mail", url: "mailto:info@tricoreservices.uk" },
-          { name: "Call Us : +44 7498506669", url: "tel:+44 7498506669" },
+          { name: "Call Us : +44 7424223058", url: "tel:+44 7424223058" },
           {
             name: "info@tricoreservices.uk",
             url: "mailto:info@tricoreservices.uk",

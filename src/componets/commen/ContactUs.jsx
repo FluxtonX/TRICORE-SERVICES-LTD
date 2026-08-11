@@ -80,7 +80,7 @@ const ContactForm = () => {
     {
       icon: Phone,
       title: "Call Us",
-      info: "+44 7498506669",
+      info: "+44 7424223058",
       color: "text-teal-600",
       bgColor: "bg-teal-100 group-hover:bg-teal-200",
     },

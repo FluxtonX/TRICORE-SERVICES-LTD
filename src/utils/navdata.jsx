@@ -1,6 +1,6 @@
 const navData = {
   topBar: {
-    phone: "+44 7498506669",
+    phone: "+44 7424223058",
     email: "info@tricoreservices.uk",
   },
   logo: {
