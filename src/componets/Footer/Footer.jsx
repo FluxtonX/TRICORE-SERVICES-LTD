@@ -1,7 +1,7 @@
 import React from "react";
-import footerData from "../../utils/footerData.jsx"; // Adjust the import
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
-import logo2 from "../../assets/logo2.png";
+import footerData from "../../utils/footerData.jsx";
+import { Phone, Mail, MapPin, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ModernFooter = () => {
   const renderSocialIcon = (iconName) => {
@@ -20,20 +20,28 @@ const ModernFooter = () => {
   };
 
   return (
-    <footer className="bg-white text-white">
+    <footer className="bg-gradient-to-b from-[#03281e] via-[#022219] to-[#01140f] text-gray-300 relative border-t border-emerald-500/20">
+      {/* Top Ambient Glow Line */}
+      <div className="h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 shadow-sm"></div>
+
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-16">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 pb-8 border-b border-emerald-900/50">
           {/* Logo */}
           <div className="mb-6 md:mb-0">
-            <a href="/" className="flex items-center">
-              <div className="text-3xl font-bold text-black tracking-tight">
-                {footerData.logo.text}
-                <span className="text-primary ml-1">{footerData.logo.highlightText || "SERVICES"}</span>
+            <a href="/" className="flex items-center group">
+              <div className="w-10 h-10 bg-emerald-500/20 rounded-xl flex items-center justify-center border border-emerald-400/30 mr-3 group-hover:bg-emerald-600 transition-all duration-300">
+                <Shield className="w-6 h-6 text-emerald-400 group-hover:text-white transition-colors" />
               </div>
-              <div className="ml-2 text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                {footerData.logo.subtitle}
+              <div>
+                <div className="text-2xl font-black text-white tracking-tight flex items-center">
+                  {footerData.logo.text}
+                  <span className="text-emerald-400 ml-1">{footerData.logo.highlightText || "SERVICES"}</span>
+                </div>
+                <div className="text-[10px] font-bold text-emerald-300 tracking-widest uppercase">
+                  {footerData.logo.subtitle}
+                </div>
               </div>
             </a>
           </div>
@@ -41,48 +49,37 @@ const ModernFooter = () => {
           {/* Social Links */}
           <div className="flex space-x-3">
             {footerData.socialLinks.map((social, index) => (
-              <a
+              <motion.a
                 key={index}
+                whileHover={{ scale: 1.15, y: -2 }}
+                whileTap={{ scale: 0.95 }}
                 href={social.url}
-                className={`${social.bgColor} p-3 rounded-full hover:opacity-80 transition-opacity duration-200 flex items-center justify-center`}
+                className="bg-emerald-900/60 hover:bg-emerald-600 border border-emerald-500/30 p-3 rounded-full text-emerald-300 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
                 aria-label={social.name}
               >
-                <span
-                  className={
-                    social.bgColor.includes("white")
-                      ? "text-gray-800"
-                      : "text-white"
-                  }
-                >
-                  {renderSocialIcon(social.icon)}
-                </span>
-              </a>
+                {renderSocialIcon(social.icon)}
+              </motion.a>
             ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-b border-primary mb-8"></div>
-
         {/* Content Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {footerData.sections.map((section, index) => (
             <div key={index} className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary mb-4">
+              <h3 className="text-lg font-bold text-emerald-400 tracking-wide uppercase text-sm border-l-2 border-emerald-500 pl-3">
                 {section.title}
               </h3>
 
               {/* Text Content */}
               {section.content.type === "text" && (
                 <div className="space-y-4">
-                  <p className="text-black text-sm leading-relaxed">
+                  <p className="text-gray-300 text-sm leading-relaxed font-light">
                     {section.content.text}
                   </p>
                   {section.badge && (
                     <div className="inline-block">
-                      <span
-                        className={`${section.badge.bgColor} text-white px-3 py-1 rounded text-xs font-bold`}
-                      >
+                      <span className="bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
                         {section.badge.text}
                       </span>
                     </div>
@@ -92,13 +89,14 @@ const ModernFooter = () => {
 
               {/* Links Content */}
               {section.content.type === "links" && (
-                <ul className="space-y-3">
+                <ul className="space-y-2.5">
                   {section.content.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
                       <a
                         href={link.url}
-                        className="text-black hover:text-primary text-sm transition-colors duration-200 flex items-center group"
+                        className="text-gray-300 hover:text-emerald-400 text-sm transition-colors duration-200 flex items-center group"
                       >
+                        <span className="text-emerald-500 mr-2 group-hover:translate-x-1 transition-transform">›</span>
                         <span className="group-hover:translate-x-1 transition-transform duration-200">
                           {link.name}
                         </span>
@@ -115,13 +113,13 @@ const ModernFooter = () => {
                     <li key={linkIndex}>
                       <a
                         href={link.url}
-                        className="text-black hover:text-primary text-sm transition-colors duration-200 flex items-center group"
+                        className="text-gray-300 hover:text-emerald-400 text-sm transition-colors duration-200 flex items-center group"
                       >
                         {link.name.includes("Call") && (
-                          <Phone className="w-4 h-4 mr-2 text-primary" />
+                          <Phone className="w-4 h-4 mr-2 text-emerald-400 flex-shrink-0" />
                         )}
                         {link.name.includes("@") && (
-                          <Mail className="w-4 h-4 mr-2 text-primary" />
+                          <Mail className="w-4 h-4 mr-2 text-emerald-400 flex-shrink-0" />
                         )}
                         <span className="group-hover:translate-x-1 transition-transform duration-200">
                           {link.name}
@@ -137,14 +135,13 @@ const ModernFooter = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-primary bg-white">
+      <div className="border-t border-emerald-950 bg-[#010e0b]">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-black text-sm">{footerData.bottomText}</p>
-            <div className="flex items-center mt-4 md:mt-0">
-              <span className="text-gray-500 text-xs">
-                Built with modern web technologies
-              </span>
+          <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+            <p>{footerData.bottomText}</p>
+            <div className="flex items-center mt-3 md:mt-0 space-x-2">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+              <span className="text-emerald-400 font-medium">TRICORE SERVICES LTD • Modern Security Solutions</span>
             </div>
           </div>
         </div>

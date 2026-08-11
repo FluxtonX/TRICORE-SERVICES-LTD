@@ -17,7 +17,7 @@ const footerData = {
       },
       badge: {
         text: "CYBER ESSENTIALS",
-        bgColor: "bg-blue-600",
+        bgColor: "bg-emerald-600",
       },
     },
     {

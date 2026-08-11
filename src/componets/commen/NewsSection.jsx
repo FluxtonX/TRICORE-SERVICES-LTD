@@ -93,18 +93,18 @@ const NewsSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-primary font-semibold tracking-wide text-sm uppercase mb-4"
+            className="text-emerald-600 font-bold tracking-widest text-xs uppercase mb-3 px-4 py-1.5 rounded-full bg-emerald-50 inline-block border border-emerald-200"
           >
             Latest News
           </motion.p>
-          <div className="w-16 h-1 bg-primary-500 mx-auto mb-6"></div>
+          <div className="w-16 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mb-6 rounded-full"></div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
           >
-            TRICORE SERVICES <span className="text-primary">News</span>
+            TRICORE SERVICES <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">News</span>
           </motion.h2>
         </motion.div>
 
@@ -124,7 +124,8 @@ const NewsSection = () => {
                 y: -10,
                 transition: { duration: 0.3 },
               }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+              onClick={() => window.location.href = '/news'}
+              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-emerald-100/80"
             >
               {/* Image Container */}
               <div className="relative overflow-hidden h-64">
@@ -133,11 +134,11 @@ const NewsSection = () => {
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent"></div>
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-3.5 py-1.5 rounded-full text-xs font-bold shadow-md">
                     {item.category}
                   </span>
                 </div>
@@ -147,36 +148,36 @@ const NewsSection = () => {
                   initial={{ scale: 0, rotate: -45 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
-                  className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center"
+                  className="absolute bottom-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30"
                 >
                   <item.icon className="w-6 h-6 text-white" />
                 </motion.div>
               </div>
 
               {/* Content Container */}
-              <div className="p-6 bg-gradient-to-br from-gray-800 to-gray-900">
+              <div className="p-6 bg-gradient-to-br from-emerald-950 to-slate-900">
                 {/* Date */}
-                <div className="flex items-center gap-2 mb-4">
-                  <Calendar className="w-4 h-4 text-primary-400" />
-                  <span className="text-primary-400 text-sm font-medium">
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400 text-xs font-bold">
                     {item.date}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-primary-400 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-emerald-400 transition-colors duration-300 leading-snug">
                   {item.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3 font-light">
                   {item.description}
                 </p>
 
                 {/* Read More Button */}
                 <motion.button
                   whileHover={{ x: 5 }}
-                  className="flex items-center gap-2 text-primary-400 hover:text-primary-300 font-semibold text-sm transition-colors duration-300 group/btn"
+                  className="flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-bold text-sm transition-colors duration-300 group/btn"
                 >
                   Read More
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -196,10 +197,11 @@ const NewsSection = () => {
           <motion.button
             whileHover={{
               scale: 1.05,
-              boxShadow: "0 15px 35px rgba(34, 197, 94, 0.3)",
+              boxShadow: "0 15px 35px rgba(16, 185, 129, 0.35)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg group"
+            onClick={() => window.location.href = '/news'}
+            className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-xl group"
           >
             View All News
             <motion.span className="inline-block ml-2 group-hover:translate-x-1 transition-transform duration-200">

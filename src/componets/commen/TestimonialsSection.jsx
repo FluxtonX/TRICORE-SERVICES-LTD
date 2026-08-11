@@ -111,12 +111,12 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-white via-emerald-50/20 to-gray-50 relative overflow-hidden">
       {/* Background Decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary-500 rounded-full"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-primary-400 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-primary-300 rounded-full"></div>
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-emerald-400 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 right-10 w-48 h-48 bg-teal-400 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-emerald-300 rounded-full blur-xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -131,18 +131,18 @@ const TestimonialsSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-primary font-semibold tracking-wide text-sm uppercase mb-4"
+            className="text-emerald-600 font-bold tracking-widest text-xs uppercase mb-3 px-4 py-1.5 rounded-full bg-emerald-50 inline-block border border-emerald-200"
           >
             What Our Clients Say
           </motion.p>
-          <div className="w-16 h-1 bg-primary-500 mx-auto mb-6"></div>
+          <div className="w-16 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mb-6 rounded-full"></div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800"
+            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight"
           >
-            TRICORE SERVICES <span className="text-primary">Testimonials</span>
+            TRICORE SERVICES <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Testimonials</span>
           </motion.h2>
         </motion.div>
 
@@ -152,29 +152,29 @@ const TestimonialsSection = () => {
           <motion.button
             whileHover={{
               scale: 1.1,
-              backgroundColor: "rgba(34, 197, 94, 0.1)",
+              backgroundColor: "rgba(16, 185, 129, 0.15)",
             }}
             whileTap={{ scale: 0.9 }}
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 z-10 bg-white shadow-lg hover:shadow-xl border border-gray-200 p-3 rounded-full transition-all duration-300"
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-6 lg:-translate-x-12 z-10 bg-white shadow-xl hover:shadow-2xl border border-emerald-100 p-3.5 rounded-full transition-all duration-300"
           >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
+            <ChevronLeft className="w-6 h-6 text-emerald-700" />
           </motion.button>
 
           <motion.button
             whileHover={{
               scale: 1.1,
-              backgroundColor: "rgba(34, 197, 94, 0.1)",
+              backgroundColor: "rgba(16, 185, 129, 0.15)",
             }}
             whileTap={{ scale: 0.9 }}
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-10 bg-white shadow-lg hover:shadow-xl border border-gray-200 p-3 rounded-full transition-all duration-300"
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-6 lg:translate-x-12 z-10 bg-white shadow-xl hover:shadow-2xl border border-emerald-100 p-3.5 rounded-full transition-all duration-300"
           >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
+            <ChevronRight className="w-6 h-6 text-emerald-700" />
           </motion.button>
 
           {/* Testimonial Cards */}
-          <div className="relative h-96 overflow-hidden">
+          <div className="relative min-h-[420px] md:min-h-[360px] overflow-hidden">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentTestimonial}
@@ -189,74 +189,76 @@ const TestimonialsSection = () => {
                 }}
                 className="absolute inset-0"
               >
-                <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 h-full relative overflow-hidden">
+                <div className="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 h-full relative overflow-hidden border border-emerald-100 flex flex-col justify-between">
                   {/* Quote Icon */}
                   <motion.div
                     initial={{ scale: 0, rotate: -45 }}
                     animate={{ scale: 1, rotate: 0 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute top-8 left-8"
+                    className="absolute top-6 left-6"
                   >
-                    <Quote className="w-16 h-16 text-primary-500 opacity-20" />
+                    <Quote className="w-16 h-16 text-emerald-500 opacity-15" />
                   </motion.div>
 
-                  <div className="relative z-10 h-full flex flex-col">
-                    {/* Stars */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.6 }}
-                      className="flex gap-1 mb-6"
-                    >
-                      {[...Array(testimonials[currentTestimonial].rating)].map(
-                        (_, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.5 + i * 0.1, duration: 0.3 }}
-                          >
-                            <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                          </motion.div>
-                        )
-                      )}
-                    </motion.div>
+                  <div className="relative z-10 h-full flex flex-col justify-between">
+                    <div>
+                      {/* Stars */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="flex gap-1 mb-6"
+                      >
+                        {[...Array(testimonials[currentTestimonial].rating)].map(
+                          (_, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ delay: 0.5 + i * 0.1, duration: 0.3 }}
+                            >
+                              <Star className="w-5 h-5 text-amber-400 fill-current" />
+                            </motion.div>
+                          )
+                        )}
+                      </motion.div>
 
-                    {/* Message */}
-                    <motion.p
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.8 }}
-                      className="text-gray-700 text-lg leading-relaxed mb-8 flex-grow"
-                    >
-                      "{testimonials[currentTestimonial].message}"
-                    </motion.p>
+                      {/* Message */}
+                      <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 font-normal italic"
+                      >
+                        "{testimonials[currentTestimonial].message}"
+                      </motion.p>
+                    </div>
 
                     {/* Author Info */}
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6, duration: 0.8 }}
-                      className="flex items-center gap-4"
+                      className="flex items-center gap-4 pt-4 border-t border-emerald-50"
                     >
                       <div className="relative">
                         <img
                           src={testimonials[currentTestimonial].avatar}
                           alt={testimonials[currentTestimonial].name}
-                          className="w-16 h-16 rounded-full object-cover border-4 border-primary-100"
+                          className="w-14 h-14 rounded-full object-cover border-2 border-emerald-400 shadow-md"
                         />
-                        <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
-                          <CompanyLogo className="w-4 h-4 text-white" />
+                        <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-emerald-600 rounded-full flex items-center justify-center shadow">
+                          <CompanyLogo className="w-3.5 h-3.5 text-white" />
                         </div>
                       </div>
                       <div>
-                        <h4 className="font-bold text-xl text-gray-800">
+                        <h4 className="font-bold text-lg text-gray-900">
                           {testimonials[currentTestimonial].name}
                         </h4>
-                        <p className="text-primary font-semibold">
+                        <p className="text-emerald-700 font-bold text-sm">
                           {testimonials[currentTestimonial].role}
                         </p>
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-gray-500 text-xs font-medium">
                           {testimonials[currentTestimonial].company}
                         </p>
                       </div>
@@ -264,7 +266,7 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-100 to-primary-200 rounded-tl-full opacity-20"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-tl-full opacity-30 pointer-events-none"></div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -278,10 +280,10 @@ const TestimonialsSection = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
                 onClick={() => goToTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-3 rounded-full transition-all duration-300 ${
                   index === currentTestimonial
-                    ? "bg-primary-500 w-8"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 w-8 shadow-md"
+                    : "bg-gray-300 hover:bg-emerald-200 w-3"
                 }`}
               />
             ))}
@@ -292,16 +294,16 @@ const TestimonialsSection = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className={`absolute top-0 right-0 p-3 rounded-full transition-all duration-300 ${
+            className={`absolute -top-12 right-0 p-2.5 rounded-full transition-all duration-300 border border-emerald-200 ${
               isAutoPlaying
-                ? "bg-primary-500 text-white"
-                : "bg-gray-200 text-gray-600"
+                ? "bg-emerald-600 text-white shadow-md"
+                : "bg-gray-100 text-gray-600"
             }`}
           >
             <motion.div
               animate={{ rotate: isAutoPlaying ? 360 : 0 }}
               transition={{
-                duration: 2,
+                duration: 3,
                 repeat: isAutoPlaying ? Infinity : 0,
                 ease: "linear",
               }}

@@ -7,19 +7,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      primary: "#1d4ed8", // bg-primary
-        "primary-hover": "#2563eb", // bg-primary-hover
-        "primary-light": "#eff6ff", // bg-primary-light
-        "primary-text": "#2563eb", // text-primary-text
-        "primary-50": "oklch(97% 0.014 254.604)",
-        "primary-100": "oklch(93.2% 0.032 255.585)",
-        "primary-500": "#0084D1",
-        "primary-300": "#8EC5FF",
-        "primary-400": "#51A2FF",
-        "priamary-600": "#155DFC",
-        "primary-700": "#1E3A8A",
-        "primary-800": "oklch(44.3% 0.11 240.79)",
-        "primary-900": "#1C398E",
+        primary: "#059669", // bg-primary (emerald-600)
+        "primary-hover": "#047857", // bg-primary-hover (emerald-700)
+        "primary-light": "#ecfdf5", // bg-primary-light (emerald-50)
+        "primary-text": "#059669", // text-primary-text
+        "primary-50": "#ecfdf5",
+        "primary-100": "#d1fae5",
+        "primary-200": "#a7f3d0",
+        "primary-300": "#6ee7b7",
+        "primary-400": "#34d399",
+        "primary-500": "#10b981",
+        "priamary-600": "#059669",
+        "primary-600": "#059669",
+        "primary-700": "#047857",
+        "primary-800": "#065f46",
+        "primary-900": "#064e3b",
+        "dark-surface": "#022c22",
       },
     },
   },

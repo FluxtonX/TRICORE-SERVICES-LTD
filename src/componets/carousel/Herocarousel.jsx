@@ -174,10 +174,10 @@ const HeroCarousel = () => {
                     variants={itemVariants}
                     className="inline-flex items-center gap-2 mb-6"
                   >
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/30">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center backdrop-blur-md border border-emerald-400/30 shadow-lg">
+                      <Icon className="w-6 h-6 text-emerald-400" />
                     </div>
-                    <span className="text-primary font-semibold tracking-wide text-sm uppercase">
+                    <span className="text-emerald-400 font-bold tracking-widest text-xs uppercase px-3 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 backdrop-blur-sm">
                       {slides[currentSlide].highlight}
                     </span>
                   </motion.div>
@@ -185,10 +185,10 @@ const HeroCarousel = () => {
                   {/* Main Title */}
                   <motion.h1
                     variants={itemVariants}
-                    className="text-5xl lg:text-7xl font-bold text-white mb-4 leading-tight"
+                    className="text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight tracking-tight"
                   >
                     {slides[currentSlide].title}{" "}
-                    <span className="text-primary">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
                       {slides[currentSlide].subtitle
                         .split("")
                         .map((char, index) => (
@@ -196,7 +196,7 @@ const HeroCarousel = () => {
                             key={index}
                             variants={itemVariants}
                             className="inline-block"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            style={{ animationDelay: `${index * 0.05}s` }}
                           >
                             {char}
                           </motion.span>
@@ -207,7 +207,7 @@ const HeroCarousel = () => {
                   {/* Description */}
                   <motion.p
                     variants={itemVariants}
-                    className="text-gray-300 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl"
+                    className="text-gray-200 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl font-light"
                   >
                     {slides[currentSlide].description}
                   </motion.p>
@@ -218,22 +218,18 @@ const HeroCarousel = () => {
                     className="flex flex-col sm:flex-row gap-4"
                   >
                     <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                        backgroundColor: "bg-primary",
-                      }}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+                      onClick={() => window.location.href = '/contact'}
+                      className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-emerald-500/25 flex items-center justify-center gap-2"
                     >
                       Get in Touch
                     </motion.button>
                     <motion.button
-                      whileHover={{
-                        scale: 1.05,
-                        backgroundColor: "rgba(255, 255, 255, 0.1)",
-                      }}
+                      whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
+                      onClick={() => window.location.href = '/services/manned-guarding'}
+                      className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center"
                     >
                       Discover More
                     </motion.button>
@@ -247,19 +243,19 @@ const HeroCarousel = () => {
 
       {/* Navigation Arrows */}
       <motion.button
-        whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+        whileHover={{ scale: 1.15, backgroundColor: "rgba(16, 185, 129, 0.3)" }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-400 text-white p-3.5 rounded-full transition-all duration-300 shadow-lg"
       >
         <ChevronLeft className="w-6 h-6" />
       </motion.button>
 
       <motion.button
-        whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+        whileHover={{ scale: 1.15, backgroundColor: "rgba(16, 185, 129, 0.3)" }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-400 text-white p-3.5 rounded-full transition-all duration-300 shadow-lg"
       >
         <ChevronRight className="w-6 h-6" />
       </motion.button>
@@ -272,30 +268,31 @@ const HeroCarousel = () => {
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.8 }}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`h-3 rounded-full transition-all duration-500 ${
               index === currentSlide
-                ? "bg-primary-500 w-8"
-                : "bg-white/40 hover:bg-white/60"
+                ? "bg-gradient-to-r from-emerald-500 to-teal-400 w-10 shadow-lg shadow-emerald-500/50"
+                : "bg-white/40 hover:bg-white/70 w-3"
             }`}
           />
         ))}
       </div>
 
       {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-black/50 z-20">
+      <div className="absolute bottom-0 left-0 w-full h-1.5 bg-black/50 z-20 overflow-hidden">
         <motion.div
           key={currentSlide}
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 5, ease: "linear" }}
-          className="h-full bg-gradient-to-r from-primary-500 to-primary-400"
+          className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300"
         />
       </div>
 
       {/* Slide Counter */}
-      <div className="absolute top-6 right-6 z-20 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2">
-        <span className="text-white font-semibold">
-          {String(currentSlide + 1).padStart(2, "0")} /{" "}
+      <div className="absolute top-6 right-6 z-20 bg-black/50 backdrop-blur-md border border-emerald-500/20 rounded-full px-4 py-2">
+        <span className="text-emerald-300 font-bold text-sm tracking-wider">
+          {String(currentSlide + 1).padStart(2, "0")}{" "}
+          <span className="text-gray-400">/</span>{" "}
           {String(slides.length).padStart(2, "0")}
         </span>
       </div>
@@ -305,16 +302,16 @@ const HeroCarousel = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-        className={`absolute top-6 left-6 z-20 p-3 rounded-full transition-all duration-300 backdrop-blur-sm border border-white/20 ${
+        className={`absolute top-6 left-6 z-20 p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-emerald-500/30 ${
           isAutoPlaying
-            ? "bg-primary-500/20 text-primary"
+            ? "bg-emerald-500/20 text-emerald-400"
             : "bg-white/10 text-white"
         }`}
       >
         <motion.div
           animate={{ rotate: isAutoPlaying ? 360 : 0 }}
           transition={{
-            duration: 2,
+            duration: 3,
             repeat: isAutoPlaying ? Infinity : 0,
             ease: "linear",
           }}

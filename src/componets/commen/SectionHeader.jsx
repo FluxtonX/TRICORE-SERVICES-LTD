@@ -8,7 +8,7 @@ const SectionHeader = ({
   title = "Location",
   imageSrc,
   imageAlt = "Section Image",
-  bgColor = "bg-primary-700",
+  bgColor = "bg-gradient-to-r from-emerald-800 via-primary-700 to-teal-900",
   textColor = "text-white",
   breadcrumbItems = [],
   showBreadcrumb = true,

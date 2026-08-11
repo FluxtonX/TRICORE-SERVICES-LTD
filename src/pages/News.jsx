@@ -10,7 +10,7 @@ function News() {
     <div className="min-h-screen bg-gray-50 py-8 space-y-12 ">
       <NewsArticle
         category="Technology"
-        categoryColor="text-blue-600"
+        categoryColor="text-emerald-600"
         title="TRICORE SERVICES Introduces Online Job Portal"
         date="14 Nov 2023"
         content={[

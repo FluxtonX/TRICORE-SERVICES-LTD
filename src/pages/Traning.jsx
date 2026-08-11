@@ -28,7 +28,7 @@ function Traning() {
         title="Training Programs"
         imageSrc="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=400&fit=crop"
         imageAlt="Modern workspace"
-        bgColor="bg-blue-600"
+        bgColor="bg-gradient-to-r from-emerald-800 via-emerald-700 to-teal-900"
         titleSize="text-4xl md:text-5xl lg:text-6xl"
         breadcrumbItems={customBreadcrumb}
         overlayGradient={true}

@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 
 const NewsArticle = ({
   category = "News",
-  categoryColor = "text-green-600",
+  categoryColor = "text-emerald-600",
   title = "ISO 45001 & 14001 Accredited",
   date = "06 Nov 2024",
   content = [],
