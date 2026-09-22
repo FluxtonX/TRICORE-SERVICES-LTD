@@ -72,22 +72,22 @@ const ContactForm = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: "Address",
-      info: "39 Ernest Road RM11 3JG",
+      title: "Location",
+      info: "Dagenham, East London",
       color: "text-emerald-600",
       bgColor: "bg-emerald-100 group-hover:bg-emerald-200",
     },
     {
       icon: Phone,
       title: "Call Us",
-      info: "+44 7424223058",
+      info: "020 3000 0000",
       color: "text-teal-600",
       bgColor: "bg-teal-100 group-hover:bg-teal-200",
     },
     {
       icon: Mail,
       title: "Email",
-      info: "info@tricoreservices.uk",
+      info: "info@tricoreservices.co.uk",
       color: "text-emerald-700",
       bgColor: "bg-emerald-100 group-hover:bg-emerald-200",
     },
@@ -132,11 +132,14 @@ const ContactForm = () => {
                 variants={itemVariants}
                 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight tracking-tight"
               >
-                Looking for a{" "}
+                Need cover, a clean, or a{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-700">
-                  Collaboration
+                  job doing?
                 </span>
               </motion.h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Get in touch and we'll come back with availability and a quote — usually within one working day.
+              </p>
             </div>
 
             {/* Contact Information */}

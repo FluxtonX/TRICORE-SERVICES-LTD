@@ -93,7 +93,7 @@ const CTASection = () => {
                 </div>
               </div>
               <span className="text-emerald-400 font-semibold text-sm">
-                Personalized Solutions
+                TRICORE SERVICES LTD
               </span>
             </motion.div>
 
@@ -103,12 +103,14 @@ const CTASection = () => {
               className="space-y-4"
             >
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
-                Solutions to meet your{' '}
+                Need cover, a clean, or a{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
-                  individual budget
-                </span>{' '}
-                and needs
+                  job doing?
+                </span>
               </h2>
+              <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
+                Get in touch and we'll come back with availability and a quote — usually within one working day.
+              </p>
             </motion.div>
 
             {/* Features List */}
@@ -117,9 +119,9 @@ const CTASection = () => {
               className="space-y-4"
             >
               {[
-                { icon: Target, text: "Customized security solutions for every business size" },
-                { icon: DollarSign, text: "Flexible pricing plans that fit your budget" },
-                { icon: Sparkles, text: "24/7 professional support and monitoring" }
+                { icon: Target, text: "London-wide coverage across commercial and residential sites" },
+                { icon: DollarSign, text: "Ongoing contracted rotas or flexible one-off jobs" },
+                { icon: Sparkles, text: "Vetted, referenced, and identity-checked staff" }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -136,28 +138,26 @@ const CTASection = () => {
               ))}
             </motion.div>
 
-            {/* CTA Button */}
+            {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
-              className="pt-6"
+              className="pt-6 flex flex-wrap gap-4"
             >
-              <motion.button
-                whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)"
-                }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => window.location.href = '/contact'}
+              <a
+                href="mailto:info@tricoreservices.co.uk"
                 className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-2xl flex items-center gap-3"
               >
-                Get in Touch
-                <motion.div
-                  className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300"
-                  whileHover={{ rotate: 45 }}
-                >
+                Email us
+                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300">
                   <ArrowRight className="w-4 h-4" />
-                </motion.div>
-              </motion.button>
+                </div>
+              </a>
+              <a
+                href="tel:+442030000000"
+                className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2"
+              >
+                Call 020 3000 0000
+              </a>
             </motion.div>
           </motion.div>
 

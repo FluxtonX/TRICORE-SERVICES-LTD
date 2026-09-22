@@ -6,7 +6,19 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Archivo', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+      },
       colors: {
+        brass: "#A9791F",
+        "brass-ink": "#7A5716",
+        "hero-bg": "#12181F",
+        "hero-fg": "#F3EFE4",
+        "cream-bg": "#F6F4EE",
+        "slate-ink": "#14191F",
+        "slate-text": "#545B66",
+        "border-line": "#DEDACD",
         primary: "#059669", // bg-primary (emerald-600)
         "primary-hover": "#047857", // bg-primary-hover (emerald-700)
         "primary-light": "#ecfdf5", // bg-primary-light (emerald-50)
