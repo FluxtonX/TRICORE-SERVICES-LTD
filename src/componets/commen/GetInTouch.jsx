@@ -153,10 +153,10 @@ const CTASection = () => {
                 </div>
               </a>
               <a
-                href="tel:+442030000000"
+                href="tel:+447424223058"
                 className="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center gap-2"
               >
-                Call 020 3000 0000
+                Call +44 7424 223058
               </a>
             </motion.div>
           </motion.div>

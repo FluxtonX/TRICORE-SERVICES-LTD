@@ -51,7 +51,7 @@ const footerData = {
           { name: "Quality & Safety Policy", url: "/quality-policy" },
           { name: "Contact Us", url: "/contact" },
           { name: "Email: info@tricoreservices.co.uk", url: "mailto:info@tricoreservices.co.uk" },
-          { name: "Call Us: 020 3000 0000", url: "tel:+442030000000" },
+          { name: "Call Us: +44 7424 223058", url: "tel:+447424223058" },
         ],
       },
     },

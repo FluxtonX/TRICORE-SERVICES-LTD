@@ -173,11 +173,11 @@ const HeroCarousel = () => {
                 Request a quote <ArrowRight size={16} />
               </a>
               <a
-                href="tel:+442030000000"
+                href="tel:+447424223058"
                 className="bg-transparent hover:bg-white/10 text-[#F3EFE4] border border-[#F3EFE4]/30 px-7 py-3.5 rounded font-semibold text-base transition-colors duration-200 flex items-center gap-2"
               >
                 <Phone size={16} className="text-[#A9791F]" />
-                Call 020 3000 0000
+                Call +44 7424 223058
               </a>
               <Link
                 to={slides[currentSlide].serviceSlug}
