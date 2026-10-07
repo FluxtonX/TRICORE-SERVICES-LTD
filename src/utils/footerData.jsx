@@ -10,14 +10,14 @@ const footerData = {
   ],
   sections: [
     {
-      title: "Cyber Essentials Accreditation",
+      title: "Three Services. One Point of Contact.",
       content: {
         type: "text",
-        text: "Cyber Essentials is a Government-backed and industry-supported scheme that helps businesses protect against the growing threat of cyber-attacks. Developed and operated by the National Cyber Security Centre (NCSC), Cyber Essentials is considered the best first step to a more secure network, protecting you from 80% of the most basic cyber security breaches.",
+        text: "Temporary staffing, commercial cleaning, and site support — supplied by Tricore Services across London. Fully insured, vetted staff for ongoing contracts or flexible one-off jobs.",
       },
       badge: {
-        text: "CYBER ESSENTIALS",
-        bgColor: "bg-emerald-600",
+        text: "LONDON-WIDE COVERAGE",
+        bgColor: "bg-emerald-700",
       },
     },
     {
@@ -25,11 +25,9 @@ const footerData = {
       content: {
         type: "links",
         links: [
-          { name: "Security Personnel", url: "/security-personnel" },
-          { name: "Loss Prevention", url: "/loss-prevention" },
-          { name: "Concierge & Reception", url: "/concierge-reception" },
-          { name: "Vacant Property", url: "/vacant-property" },
-          { name: "Cleaning", url: "/cleaning" },
+          { name: "Temporary Staffing (SIC 78200)", url: "/services/temporary-staffing" },
+          { name: "Commercial Cleaning (SIC 81210)", url: "/services/commercial-cleaning" },
+          { name: "Site & Facilities Support (SIC 96090)", url: "/services/site-facilities-support" },
         ],
       },
     },
@@ -46,23 +44,19 @@ const footerData = {
       },
     },
     {
-      title: "Useful Links",
+      title: "Useful Links & Contact",
       content: {
         type: "contact",
         links: [
-          { name: "Quality Policy", url: "/quality-policy" },
+          { name: "Quality & Safety Policy", url: "/quality-policy" },
           { name: "Contact Us", url: "/contact" },
-          { name: "Mail", url: "mailto:info@tricoreservices.uk" },
-          { name: "Call Us : +44 7424223058", url: "tel:+44 7424223058" },
-          {
-            name: "info@tricoreservices.uk",
-            url: "mailto:info@tricoreservices.uk",
-          },
+          { name: "Email: info@tricoreservices.co.uk", url: "mailto:info@tricoreservices.co.uk" },
+          { name: "Call Us: +44 7424 223058", url: "tel:+447424223058" },
         ],
       },
     },
   ],
   bottomText:
-    "© 2025 TRICORE SERVICES LTD. All rights reserved. | Privacy Policy | Terms of Service",
+    "Tricore Services Limited · Dagenham, East London · Company no. [add company number]",
 };
 export default footerData;

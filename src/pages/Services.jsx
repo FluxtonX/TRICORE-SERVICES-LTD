@@ -27,9 +27,12 @@ const Services = () => {
         />
       </div>
 
-      {/* Same format as Careers */}
+      {/* Service Details Section */}
       <SecuritySection
         title={sectionData.title}
+        sicCode={sectionData.sicCode}
+        tagline={sectionData.tagline}
+        highlights={sectionData.highlights}
         sections={sectionData.sections}
       />
       <ModernServicesSection />

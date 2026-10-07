@@ -1,7 +1,7 @@
 const navData = {
   topBar: {
-    phone: "+44 7424223058",
-    email: "info@tricoreservices.uk",
+    phone: "+44 7424 223058",
+    email: "info@tricoreservices.co.uk",
   },
   logo: {
     text: "TRICORE",
@@ -43,29 +43,19 @@ const navData = {
       hasDropdown: true,
       dropdownItems: [
         {
-          name: "Security Guards",
-          slug: "security-guards",
-          content: "Security Guards service.",
+          name: "Temporary Staffing",
+          slug: "temporary-staffing",
+          content: "Vetted temporary staff for cleaning teams, concierge desks, and site labour.",
         },
         {
-          name: "Mobile Patrols",
-          slug: "mobile-patrols",
-          content: "Mobile Patrols service.",
+          name: "Commercial Cleaning",
+          slug: "commercial-cleaning",
+          content: "General cleaning for offices, communal areas, retail units, and residential blocks.",
         },
         {
-          name: "CCTV Monitoring",
-          slug: "cctv",
-          content: "CCTV Monitoring service.",
-        },
-        {
-          name: "Access Control",
-          slug: "access-control",
-          content: "Access Control service.",
-        },
-        {
-          name: "Event Security",
-          slug: "event-security",
-          content: "Event Security service.",
+          name: "Site & Facilities Support",
+          slug: "site-facilities-support",
+          content: "Grounds upkeep, ad hoc labour, event set-up, and general building support.",
         },
       ],
     },

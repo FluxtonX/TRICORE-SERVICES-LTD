@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Shield, Eye, Brush, Users, Building, Car,ShieldAlert } from "lucide-react";
-import security from "../../assets/home banner/security.jpg"
-import servilance from "../../assets/expertise/servilance.webp"
-import clean1 from "../../assets/expertise/clean.webp"
-import corporate1 from "../../assets/expertise/corporate.webp"
-import dog from "../../assets/services/dog.webp"
+import { Users, Sparkles, Building2, Check, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import clean1 from "../../assets/expertise/clean.webp";
+import corporate1 from "../../assets/expertise/corporate.webp";
 
 const ModernServicesSection = () => {
   const sectionRef = useRef(null);
@@ -13,80 +11,73 @@ const ModernServicesSection = () => {
 
   const services = [
     {
-      id: 1,
-      title: "Loss Prevention",
+      id: "temporary-staffing",
+      sic: "SIC 78200",
+      title: "Temporary staffing",
+      icon: Users,
+      ringSvg: (
+        <svg className="w-12 h-12 text-brass" viewBox="0 0 46 46">
+          <circle cx="23" cy="23" r="20" fill="none" stroke="currentColor" strokeWidth="2.5" />
+          <circle cx="23" cy="23" r="9" fill="currentColor" />
+        </svg>
+      ),
       description:
-        "In the realm of retail and business, losses can significantly impact your bottom line. Our specialized loss prevention officers are trained to identify, deter, and respond to theft and fraudulent activities.",
-      image:
-        security,
-      icon: Shield,
+        "Vetted temporary staff for cleaning teams, concierge desks, event cover and general site labour — for a shift, a season, or an ongoing rota.",
       features: [
-        "Retail theft prevention",
-        "Fraud detection",
-        "Asset protection",
-        "Risk assessment",
+        "Short-notice and same-day cover",
+        "Referenced and identity-checked staff",
+        "Cleaning, concierge and general labour roles",
+        "Payroll and compliance handled for you",
       ],
+      ctaText: "Ask about staffing →",
+      emailSubject: "Enquiry: Temporary staffing",
+      image: corporate1,
     },
     {
-      id: 2,
-      title: "Surveillance & Monitoring",
+      id: "commercial-cleaning",
+      sic: "SIC 81210",
+      title: "Commercial cleaning",
+      icon: Sparkles,
+      ringSvg: (
+        <svg className="w-12 h-12 text-brass" viewBox="0 0 46 46">
+          <circle cx="15" cy="23" r="12" fill="none" stroke="currentColor" strokeWidth="2.5" />
+          <circle cx="31" cy="23" r="12" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        </svg>
+      ),
       description:
-        "Advanced 24/7 monitoring systems with real-time alerts and professional response teams. Our state-of-the-art CCTV and surveillance technology ensures comprehensive security coverage.",
-      image:
-        servilance,
-      icon: Eye,
+        "General cleaning for offices, communal areas, retail units and residential blocks, scheduled around the people who use the building.",
       features: [
-        "24/7 monitoring",
-        "Real-time alerts",
-        "Advanced CCTV systems",
-        "Remote surveillance",
+        "Daily, weekly or one-off cleans",
+        "Offices, lobbies, stairwells, communal areas",
+        "Consumables and waste management",
+        "Site-specific checklists and sign-off",
       ],
+      ctaText: "Ask about cleaning →",
+      emailSubject: "Enquiry: Commercial cleaning",
+      image: clean1,
     },
     {
-      id: 3,
-      title: "Professional Cleaning",
+      id: "site-facilities-support",
+      sic: "SIC 96090",
+      title: "Site & facilities support",
+      icon: Building2,
+      ringSvg: (
+        <svg className="w-12 h-12 text-brass" viewBox="0 0 46 46">
+          <path d="M23 4 L40 14 L40 32 L23 42 L6 32 L6 14 Z" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        </svg>
+      ),
       description:
-        "Our team at TRICORE SERVICES LTD specializes in providing a comprehensive range of professional cleaning services including office cleaning, industrial cleaning, and specialized sanitation.",
-      image:
-       clean1,
-      icon: Brush,
+        "The jobs that sit outside a standard contract — grounds upkeep, ad hoc labour, event set-up and general building support.",
       features: [
-        "Office cleaning",
-        "Industrial sanitation",
-        "Deep cleaning services",
-        "Eco-friendly solutions",
+        "Ad hoc labour and site support",
+        "Grounds and communal area upkeep",
+        "Event set-up and turnaround",
+        "Flexible, one-off jobs",
       ],
+      ctaText: "Ask about site support →",
+      emailSubject: "Enquiry: Site & facilities support",
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop&auto=format&q=80",
     },
-    {
-      id: 4,
-      title: "Corporate Security",
-      description:
-        "Comprehensive security solutions for businesses of all sizes. From executive protection to facility security, we provide tailored services that protect your people and assets.",
-      image:
-        corporate1,
-      icon: Building,
-      features: [
-        "Executive protection",
-        "Facility security",
-        "Access control",
-        "Emergency response",
-      ],
-    },
-    {
-  id: 5,
-  title: "Security Guarding",
-  description:
-    "We provide professional, licensed security guards to protect your people, property, and assets. Our team ensures safety through reliable on-site guarding, patrols, and rapid response — giving you peace of mind, 24/7.",
-  image: dog, // 👉 replace with your actual image import
-  icon: ShieldAlert,     // 👉 pick a suitable icon (e.g., Shield from lucide-react)
-  features: [
-    "Licensed and trained personnel",
-    "On-site guarding",
-    "Patrol services",
-    "Rapid response 24/7",
-  ],
-},
-
   ];
 
   const containerVariants = {
@@ -94,289 +85,107 @@ const ModernServicesSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: {
-      opacity: 0,
-      y: 60,
-      scale: 0.95,
-    },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { scale: 1.2, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 1.2,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        delay: 0.2,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   return (
-    <div className="py-20 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
-      {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8 }}
-        className="text-center mb-16 px-6"
-      >
-        <div className="max-w-4xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-emerald-600 font-bold tracking-widest text-xs uppercase mb-3 px-4 py-1.5 rounded-full bg-emerald-50 inline-block border border-emerald-200"
-          >
-            WE DO IT BETTER
-          </motion.p>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 mx-auto mb-6 rounded-full"></div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight"
-          >
-            TRICORE SERVICES <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">EXPERTISE</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto"
-          >
-            We cover sectors such as Corporate & Industrial, Education, Finance &
-            Insurance, Government, Rail, Retail, Leisure & Tourism, Transport &
-            Logistics.
-          </motion.p>
-        </div>
-      </motion.div>
-
-      {/* Services Grid */}
-      <motion.div
-        ref={sectionRef}
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className="max-w-7xl mx-auto px-6"
-      >
-        <div className="space-y-20">
-          {services.map((service, index) => {
-            const isEven = index % 2 === 0;
-
-            return (
-              <motion.div
-                key={service.id}
-                variants={itemVariants}
-                className="group"
-              >
-                <div
-                  className={`grid lg:grid-cols-2 gap-12 items-center ${
-                    isEven ? "" : "lg:grid-flow-col-dense"
-                  }`}
-                >
-                  {/* Image Column */}
-                  <motion.div
-                    className={`relative ${
-                      isEven ? "lg:order-1" : "lg:order-2"
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <div className="relative overflow-hidden rounded-3xl shadow-2xl border border-emerald-100">
-                      <motion.div
-                        variants={imageVariants}
-                        className="aspect-[4/3] relative"
-                      >
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-emerald-950/40"></div>
-
-                        {/* Floating Icon */}
-                        <motion.div
-                          initial={{ scale: 0, rotate: -45 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ delay: 0.8, duration: 0.6 }}
-                          className="absolute top-6 right-6 w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-xl backdrop-blur-md border border-emerald-300/30"
-                        >
-                          <service.icon className="w-8 h-8 text-white" />
-                        </motion.div>
-
-                        {/* Overlay on Hover */}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
-                          className="absolute inset-0 bg-emerald-950/85 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300"
-                        >
-                          <div className="text-center text-white p-6">
-                            <h4 className="font-bold text-xl mb-4 text-emerald-300">
-                              Key Features
-                            </h4>
-                            <ul className="space-y-3">
-                              {service.features.map((feature, idx) => (
-                                <motion.li
-                                  key={idx}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  whileHover={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: idx * 0.1 }}
-                                  className="flex items-center justify-center gap-2 text-sm font-medium text-emerald-100"
-                                >
-                                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                                  {feature}
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        </motion.div>
-                      </motion.div>
-                    </div>
-
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-emerald-100 rounded-full opacity-60 -z-10 blur-xl"></div>
-                    <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-teal-100 rounded-full opacity-50 -z-10 blur-2xl"></div>
-                  </motion.div>
-
-                  {/* Content Column */}
-                  <motion.div
-                    variants={textVariants}
-                    className={`space-y-6 ${
-                      isEven ? "lg:order-2" : "lg:order-1"
-                    }`}
-                  >
-                    <div className="space-y-4">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: "60px" }}
-                        transition={{ delay: 0.5, duration: 0.8 }}
-                        className="h-1.5 bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
-                      ></motion.div>
-
-                      <motion.h3
-                        className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
-                      >
-                        {service.title}
-                      </motion.h3>
-                    </div>
-
-                    <motion.p
-                      className="text-lg text-gray-600 leading-relaxed"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.6 }}
-                    >
-                      {service.description}
-                    </motion.p>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5, duration: 0.6 }}
-                      className="flex flex-wrap gap-2.5"
-                    >
-                      {service.features.map((feature, idx) => (
-                        <motion.span
-                          key={idx}
-                          whileHover={{ scale: 1.05 }}
-                          className="px-4 py-2 bg-emerald-50/80 text-emerald-800 rounded-full text-xs font-bold border border-emerald-200/80 shadow-sm"
-                        >
-                          ✓ {feature}
-                        </motion.span>
-                      ))}
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.6, duration: 0.6 }}
-                      className="pt-4"
-                    >
-                      <motion.button
-                        whileHover={{
-                          scale: 1.04,
-                          boxShadow: "0 12px 30px rgba(16, 185, 129, 0.35)",
-                        }}
-                        whileTap={{ scale: 0.96 }}
-                        onClick={() => window.location.href = '/contact'}
-                        className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-lg group flex items-center gap-2"
-                      >
-                        Learn More
-                        <motion.span className="inline-block group-hover:translate-x-1 transition-transform duration-200">
-                          →
-                        </motion.span>
-                      </motion.button>
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </motion.div>
-
-      {/* Bottom CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ delay: 1, duration: 0.8 }}
-        className="mt-24 text-center"
-      >
-        <div className="max-w-4xl mx-auto px-6">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">
-            Ready to Secure Your Business?
-          </h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss your security needs and receive a tailored, cost-effective solution.
+    <section id="services" className="py-24 bg-[#F6F4EE] border-b border-[#DEDACD]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        {/* Section Header matching Client Spec */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <span className="text-[#A9791F] font-bold text-sm tracking-widest uppercase mb-3 inline-block">
+            What we do
+          </span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-[#14191F] tracking-tight leading-tight">
+            One supplier, three jobs done properly
+          </h2>
+          <p className="text-[#545B66] text-lg mt-4 max-w-2xl mx-auto">
+            Temporary staffing, commercial cleaning, and site support — supplied by Tricore Services across London.
           </p>
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(16, 185, 129, 0.35)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => window.location.href = '/contact'}
-            className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-300 shadow-xl"
-          >
-            Get Started Today
-          </motion.button>
-        </div>
-      </motion.div>
-    </div>
+        </motion.div>
+
+        {/* 3 Core Services Grid */}
+        <motion.div
+          ref={sectionRef}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {services.map((service) => (
+            <motion.div
+              key={service.id}
+              variants={itemVariants}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="bg-white border border-[#DEDACD] rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 relative flex flex-col justify-between"
+            >
+              {/* Top Badge & Geometric Icon */}
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="p-3 bg-[#F6F4EE] rounded-xl border border-[#DEDACD]/60">
+                    {service.ringSvg}
+                  </div>
+                  <span className="text-xs font-bold text-[#545B66] bg-stone-100 px-3 py-1.5 rounded-full border border-stone-200">
+                    {service.sic}
+                  </span>
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="text-2xl font-bold text-[#14191F] mb-3 tracking-tight">
+                  {service.title}
+                </h3>
+                <p className="text-[#545B66] text-sm leading-relaxed mb-6">
+                  {service.description}
+                </p>
+
+                {/* Bullet Points */}
+                <ul className="space-y-3 mb-8 border-t border-[#DEDACD]/60 pt-6">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-[#14191F]">
+                      <span className="w-2 h-2 rounded-full bg-[#A9791F] mt-1.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Action Links */}
+              <div className="pt-4 border-t border-[#DEDACD]/40 flex flex-col gap-2">
+                <a
+                  href={`mailto:info@tricoreservices.co.uk?subject=${encodeURIComponent(service.emailSubject)}`}
+                  className="inline-flex items-center text-sm font-bold text-[#A9791F] hover:text-[#7A5716] transition-colors gap-1.5 group"
+                >
+                  {service.ctaText}
+                </a>
+                <Link
+                  to={`/services/${service.id}`}
+                  className="text-xs font-semibold text-gray-500 hover:text-gray-900 transition-colors inline-flex items-center gap-1"
+                >
+                  View full service overview <ArrowRight size={12} />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

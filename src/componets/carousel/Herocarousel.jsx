@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import security from "../../assets/home banner/security.jpg"
-import security1 from "../../assets/home banner/security1.jpg"
-import security2 from "../../assets/home banner/security2.webp"
-import security3 from "../../assets/home banner/security3.webp"
+import clean1 from "../../assets/expertise/clean.webp";
+import corporate1 from "../../assets/expertise/corporate.webp";
 import {
   ChevronLeft,
   ChevronRight,
-  Shield,
   Users,
-  Building,
-  Eye,
+  Sparkles,
+  Building2,
+  ShieldCheck,
+  CheckCircle2,
+  Phone,
+  Mail,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,47 +23,49 @@ const HeroCarousel = () => {
   const slides = [
     {
       id: 1,
-      title: "Security Provider",
-      subtitle: "SECURITY",
-      highlight: "Nationwide",
+      badge: "SIC REGISTERED & FULLY INSURED",
+      title: "Three services.",
+      subtitle: "One point of contact.",
       description:
-        "TRICORE SERVICES LTD is a leading security company based in London providing immense security solutions Nationwide (Manned Guarding, Loss Prevention Officers, Vacant Properties and Concierge) that fit your needs.",
-      image:
-        security1,
-      icon: Shield,
+        "Temporary staffing, commercial cleaning, and site support — supplied by Tricore Services across London.",
+      image: corporate1,
+      icon: ShieldCheck,
+      serviceSlug: "/services/temporary-staffing",
     },
     {
       id: 2,
-      title: "Professional Team",
-      subtitle: "EXCELLENCE",
-      highlight: "Expert Staff",
+      badge: "SIC 78200 · RECRUITMENT & LABOUR",
+      title: "Temporary",
+      subtitle: "Staffing Solutions",
       description:
-        "Our highly trained security professionals deliver exceptional service with years of experience in corporate security, event management, and property protection across the United Kingdom.",
+        "Vetted temporary staff for cleaning teams, concierge desks, event cover, and general site labour — for a shift, a season, or an ongoing rota.",
       image:
-        security,
+        "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop&auto=format&q=80",
       icon: Users,
+      serviceSlug: "/services/temporary-staffing",
     },
     {
       id: 3,
-      title: "Corporate Solutions",
-      subtitle: "BUSINESS",
-      highlight: "Enterprise Ready",
+      badge: "SIC 81210 · COMMERCIAL SPECIALISTS",
+      title: "Commercial",
+      subtitle: "Cleaning Services",
       description:
-        "Comprehensive security solutions tailored for businesses of all sizes. From small offices to large corporate complexes, we provide customized security strategies that protect your assets.",
-      image:
-        security2,
-      icon: Building,
+        "General cleaning for offices, communal areas, retail units, and residential blocks, scheduled seamlessly around the people who use the building.",
+      image: clean1,
+      icon: Sparkles,
+      serviceSlug: "/services/commercial-cleaning",
     },
     {
       id: 4,
-      title: "24/7 Monitoring",
-      subtitle: "SURVEILLANCE",
-      highlight: "Round the Clock",
+      badge: "SIC 96090 · AD HOC & GROUNDS",
+      title: "Site & Facilities",
+      subtitle: "Support Services",
       description:
-        "Advanced monitoring systems with real-time alerts and professional response teams. Our state-of-the-art technology ensures your property is protected around the clock.",
+        "The jobs that sit outside a standard contract — grounds upkeep, ad hoc labour, event set-up, and flexible building support.",
       image:
-        security3,
-      icon: Eye,
+        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&h=900&fit=crop&auto=format&q=80",
+      icon: Building2,
+      serviceSlug: "/services/site-facilities-support",
     },
   ];
 
@@ -68,7 +73,7 @@ const HeroCarousel = () => {
     if (isAutoPlaying) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 5000);
+      }, 6000);
       return () => clearInterval(interval);
     }
   }, [isAutoPlaying, slides.length]);
@@ -88,237 +93,147 @@ const HeroCarousel = () => {
     setIsAutoPlaying(false);
   };
 
-  const slideVariants = {
-    enter: {
-      x: 1000,
-      opacity: 0,
-    },
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: {
-      zIndex: 0,
-      x: -1000,
-      opacity: 0,
-    },
-  };
-
-  const contentVariants = {
-    hidden: {
-      opacity: 0,
-      y: 50,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
   const Icon = slides[currentSlide].icon;
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.4 },
-          }}
-          className="absolute inset-0"
-        >
-          <div className="relative w-full h-full">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0">
-              <img
-                src={slides[currentSlide].image}
-                alt={slides[currentSlide].title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            </div>
+    <div className="relative w-full bg-[#12181F] text-[#F3EFE4] overflow-hidden">
+      {/* Hero Viewport */}
+      <div className="relative min-h-[560px] lg:min-h-[640px] flex items-center">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+            className="absolute inset-0"
+          >
+            {/* Background Image with Tint & Vignette */}
+            <img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
+              className="w-full h-full object-cover object-center filter brightness-[0.25] contrast-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#12181F] via-[#12181F]/90 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(169,121,31,0.15),transparent_60%)]" />
+          </motion.div>
+        </AnimatePresence>
 
-            {/* Content */}
+        {/* Hero Content Area */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            {/* Tag / Badge */}
             <motion.div
-              variants={contentVariants}
-              initial="hidden"
-              animate="visible"
-              className="relative z-10 flex items-center h-full"
+              key={`badge-${currentSlide}`}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-bold tracking-widest uppercase text-[#F3EFE4]/90"
             >
-              <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-                <div className="max-w-3xl">
-                  {/* Highlight Badge */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="inline-flex items-center gap-2 mb-6"
-                  >
-                    <div className="w-12 h-12 bg-emerald-500/20 rounded-2xl flex items-center justify-center backdrop-blur-md border border-emerald-400/30 shadow-lg">
-                      <Icon className="w-6 h-6 text-emerald-400" />
-                    </div>
-                    <span className="text-emerald-400 font-bold tracking-widest text-xs uppercase px-3 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 backdrop-blur-sm">
-                      {slides[currentSlide].highlight}
-                    </span>
-                  </motion.div>
+              <Icon className="w-3.5 h-3.5 text-[#A9791F]" />
+              <span>{slides[currentSlide].badge}</span>
+            </motion.div>
 
-                  {/* Main Title */}
-                  <motion.h1
-                    variants={itemVariants}
-                    className="text-5xl lg:text-7xl font-extrabold text-white mb-4 leading-tight tracking-tight"
-                  >
-                    {slides[currentSlide].title}{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">
-                      {slides[currentSlide].subtitle
-                        .split("")
-                        .map((char, index) => (
-                          <motion.span
-                            key={index}
-                            variants={itemVariants}
-                            className="inline-block"
-                            style={{ animationDelay: `${index * 0.05}s` }}
-                          >
-                            {char}
-                          </motion.span>
-                        ))}
-                    </span>
-                  </motion.h1>
+            {/* Main Headline */}
+            <motion.h1
+              key={`title-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-[#F3EFE4] leading-[1.1] tracking-tight mb-6"
+            >
+              {slides[currentSlide].title}{" "}
+              <span className="text-[#A9791F] font-serif font-semibold italic">
+                {slides[currentSlide].subtitle}
+              </span>
+            </motion.h1>
 
-                  {/* Description */}
-                  <motion.p
-                    variants={itemVariants}
-                    className="text-gray-200 text-lg lg:text-xl leading-relaxed mb-8 max-w-2xl font-light"
-                  >
-                    {slides[currentSlide].description}
-                  </motion.p>
+            {/* Subtitle / Lede */}
+            <motion.p
+              key={`desc-${currentSlide}`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg sm:text-xl text-[#F3EFE4]/80 leading-relaxed mb-10 max-w-2xl font-normal"
+            >
+              {slides[currentSlide].description}
+            </motion.p>
 
-                  {/* Action Buttons */}
-                  <motion.div
-                    variants={itemVariants}
-                    className="flex flex-col sm:flex-row gap-4"
-                  >
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => window.location.href = '/contact'}
-                      className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-emerald-500/25 flex items-center justify-center gap-2"
-                    >
-                      Get in Touch
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => window.location.href = '/services/manned-guarding'}
-                      className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 flex items-center justify-center"
-                    >
-                      Discover More
-                    </motion.button>
-                  </motion.div>
-                </div>
-              </div>
+            {/* Action CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              <a
+                href="mailto:info@tricoreservices.co.uk"
+                className="bg-[#A9791F] hover:bg-[#7A5716] text-white px-7 py-3.5 rounded font-semibold text-base transition-colors duration-200 flex items-center gap-2 shadow-lg"
+              >
+                Request a quote <ArrowRight size={16} />
+              </a>
+              <a
+                href="tel:+447424223058"
+                className="bg-transparent hover:bg-white/10 text-[#F3EFE4] border border-[#F3EFE4]/30 px-7 py-3.5 rounded font-semibold text-base transition-colors duration-200 flex items-center gap-2"
+              >
+                <Phone size={16} className="text-[#A9791F]" />
+                Call +44 7424 223058
+              </a>
+              <Link
+                to={slides[currentSlide].serviceSlug}
+                className="text-sm text-[#F3EFE4]/70 hover:text-white underline underline-offset-4 ml-2 transition-colors"
+              >
+                Explore service details →
+              </Link>
             </motion.div>
           </div>
-        </motion.div>
-      </AnimatePresence>
+        </div>
 
-      {/* Navigation Arrows */}
-      <motion.button
-        whileHover={{ scale: 1.15, backgroundColor: "rgba(16, 185, 129, 0.3)" }}
-        whileTap={{ scale: 0.9 }}
-        onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-400 text-white p-3.5 rounded-full transition-all duration-300 shadow-lg"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </motion.button>
-
-      <motion.button
-        whileHover={{ scale: 1.15, backgroundColor: "rgba(16, 185, 129, 0.3)" }}
-        whileTap={{ scale: 0.9 }}
-        onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-black/40 backdrop-blur-md border border-emerald-500/30 hover:border-emerald-400 text-white p-3.5 rounded-full transition-all duration-300 shadow-lg"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </motion.button>
-
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-        {slides.map((_, index) => (
-          <motion.button
-            key={index}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.8 }}
-            onClick={() => goToSlide(index)}
-            className={`h-3 rounded-full transition-all duration-500 ${
-              index === currentSlide
-                ? "bg-gradient-to-r from-emerald-500 to-teal-400 w-10 shadow-lg shadow-emerald-500/50"
-                : "bg-white/40 hover:bg-white/70 w-3"
-            }`}
-          />
-        ))}
+        {/* Controls */}
+        <div className="absolute bottom-6 right-6 lg:right-12 z-20 flex items-center gap-3">
+          <button
+            onClick={prevSlide}
+            aria-label="Previous slide"
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <div className="text-xs font-mono tracking-wider text-[#F3EFE4]/70">
+            {currentSlide + 1} / {slides.length}
+          </div>
+          <button
+            onClick={nextSlide}
+            aria-label="Next slide"
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1.5 bg-black/50 z-20 overflow-hidden">
-        <motion.div
-          key={currentSlide}
-          initial={{ width: 0 }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 5, ease: "linear" }}
-          className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300"
-        />
+      {/* Trustbar directly below Hero matching Client Spec */}
+      <div className="bg-white border-y border-[#DEDACD] text-[#14191F]">
+        <div className="max-w-7xl mx-auto px-6 py-5">
+          <ul className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <li className="flex items-center justify-center gap-2 text-sm font-semibold text-[#545B66]">
+              <CheckCircle2 size={16} className="text-[#A9791F] flex-shrink-0" />
+              <span>London-wide coverage</span>
+            </li>
+            <li className="flex items-center justify-center gap-2 text-sm font-semibold text-[#545B66]">
+              <CheckCircle2 size={16} className="text-[#A9791F] flex-shrink-0" />
+              <span>Fully insured</span>
+            </li>
+            <li className="flex items-center justify-center gap-2 text-sm font-semibold text-[#545B66]">
+              <CheckCircle2 size={16} className="text-[#A9791F] flex-shrink-0" />
+              <span>Vetted, referenced staff</span>
+            </li>
+            <li className="flex items-center justify-center gap-2 text-sm font-semibold text-[#545B66]">
+              <CheckCircle2 size={16} className="text-[#A9791F] flex-shrink-0" />
+              <span>Contracts or one-off jobs</span>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      {/* Slide Counter */}
-      <div className="absolute top-6 right-6 z-20 bg-black/50 backdrop-blur-md border border-emerald-500/20 rounded-full px-4 py-2">
-        <span className="text-emerald-300 font-bold text-sm tracking-wider">
-          {String(currentSlide + 1).padStart(2, "0")}{" "}
-          <span className="text-gray-400">/</span>{" "}
-          {String(slides.length).padStart(2, "0")}
-        </span>
-      </div>
-
-      {/* Auto-play Toggle */}
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-        className={`absolute top-6 left-6 z-20 p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-emerald-500/30 ${
-          isAutoPlaying
-            ? "bg-emerald-500/20 text-emerald-400"
-            : "bg-white/10 text-white"
-        }`}
-      >
-        <motion.div
-          animate={{ rotate: isAutoPlaying ? 360 : 0 }}
-          transition={{
-            duration: 3,
-            repeat: isAutoPlaying ? Infinity : 0,
-            ease: "linear",
-          }}
-        >
-          ⟲
-        </motion.div>
-      </motion.button>
     </div>
   );
 };
